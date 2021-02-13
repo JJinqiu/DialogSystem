@@ -17,6 +17,7 @@ public class DialogSystem : MonoBehaviour
     public Sprite face02;
 
     private bool m_IsTextFinished;
+    private bool m_IsCancelTyping;
     private List<string> m_TextList = new List<string>();
 
     private void Awake()
@@ -35,7 +36,7 @@ public class DialogSystem : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && m_IsTextFinished)
+        if (Input.GetKeyDown(KeyCode.R))
         {
             if (index == m_TextList.Count)
             {
@@ -46,7 +47,12 @@ public class DialogSystem : MonoBehaviour
 
             // textLabel.text = m_TextList[index];
             // ++index;
-            StartCoroutine(SetTextUI());
+            if (m_IsTextFinished && !m_IsCancelTyping)
+                StartCoroutine(SetTextUI());
+            else if (!m_IsTextFinished)
+            {
+                m_IsCancelTyping = !m_IsCancelTyping;
+            }
         }
     }
 
@@ -82,10 +88,15 @@ public class DialogSystem : MonoBehaviour
 
         for (var i = 0; i < m_TextList[index].Length; ++i)
         {
+            if (m_IsCancelTyping)
+                break;
             textLabel.text += m_TextList[index][i];
             yield return new WaitForSeconds(textSpeed);
         }
 
+        if (m_IsCancelTyping)
+            textLabel.text = m_TextList[index];
+        m_IsCancelTyping = false;
         m_IsTextFinished = true;
         ++index;
     }
