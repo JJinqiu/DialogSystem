@@ -21,7 +21,7 @@ public class TalkButton : MonoBehaviour
     {
         if (Button.activeSelf && Input.GetKeyDown(KeyCode.R))
         {
-            // talkUI.SetActive(true);
+            talkUI.SetActive(true);
         }
     }
 
