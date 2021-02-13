@@ -4750,6 +4750,7 @@ GameObject:
   - component: {fileID: 109555912}
   - component: {fileID: 109555914}
   - component: {fileID: 109555913}
+  - component: {fileID: 109555915}
   m_Layer: 5
   m_Name: DialogPanel
   m_TagString: Untagged
@@ -4815,6 +4816,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109555911}
   m_CullTransparentMesh: 0
+--- !u!114 &109555915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109555911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a79b35094b2e214d9e88f38f1e7fc3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textLabel: {fileID: 883704843}
+  faceImage: {fileID: 261968202}
+  textFile: {fileID: 4900000, guid: 4585e3bb1faca407bb2779618ff3836a, type: 3}
+  index: 0
 --- !u!1 &117192547
 GameObject:
   m_ObjectHideFlags: 0
